@@ -21,5 +21,27 @@ Function:
     void Sort() 	//对当前的表排序
 end LinearList
 ```
-    
+* 线性表：顺序表
+> 顺序表的存储表示有两种：静态存储和动态存储
+    * 静态存储
+    ```
+    #define MaxSize 100
+    typedef int T;
+
+    typedef struct
+    {
+    	T data[MaxSize];
+	int n;
+    }SeqList;
+    ```
+    * 动态存储
+    ```
+    typedef int T;
+    typedef struct
+    {
+        T* data;
+	int MaxSize, n;
+    }SeqList;
+    ```
+
 
