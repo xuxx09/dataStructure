@@ -43,5 +43,3 @@ end LinearList
 	int MaxSize, n;
     }SeqList;
     ```
-
-
