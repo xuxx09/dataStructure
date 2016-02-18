@@ -22,4 +22,5 @@ public:
     virtual void input() = 0;
     virtual void output() = 0;
     virtual LinearList<T> operator=(LinearList<T>& L) = 0;
+};
 
