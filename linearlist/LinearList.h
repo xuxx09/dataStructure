@@ -1,3 +1,5 @@
+#ifndef LINEARLIST_INCLUDE_LINEARLIST_H_
+#define LINEARLIST_INCLUDE_LINEARLIST_H_
 
 /**
  *头文件定义了线性表的抽象基类
@@ -21,3 +23,4 @@ public:
     virtual void output() = 0;
 };
 
+#endif // LINEARLIST_INCLUDE_LINEARLIST_H_

@@ -43,4 +43,8 @@ end LinearList
 	int MaxSize, n;
     }SeqList;
     ```
-
+* 文件组织 
+    * **LinearList.h**定义了一个纯虚类，定义了线性表的接口。
+    * **SeqList.h**定义了顺序表实现。
+    * **SeqApply.h**定义了顺序表的集合并和交操。
+    * **main.cpp**定义了测试函数。

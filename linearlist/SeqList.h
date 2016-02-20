@@ -1,3 +1,7 @@
+#ifndef LINEARLIST_INCLUDE_SEQLIST_H_
+#define LINEARLIST_INCLUDE_SEQLIST_H_
+
+
 #include <iostream>
 #include <stdlib.h>
 #include "LinearList.h"
@@ -150,8 +154,14 @@ int SeqList<T>::Locate(int i)const
 template <class T>
 bool SeqList<T>::Insert(int i, T& x)
 {
+    /**
+     *这里是表示表满不能插入的情况,这个设计是不合理的
+     *应该在满时自动扩展list的大小。
+     */
+//    if(last == maxSize-1)
+//        return false;
     if(last == maxSize-1)
-        return false;
+        reSize(maxSize*2);
     if(i < 0 || i > last + 1)
         return false;
     for(int j = last; j>=i; j--)
@@ -207,4 +217,4 @@ void SeqList<T>::output()
     }
 }
 
-
+#endif // LINEARLIST_INCLUDE_SEQLIST_H_
