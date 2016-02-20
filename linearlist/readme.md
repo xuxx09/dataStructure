@@ -18,7 +18,7 @@ Function:
     bool IsEmpty()	//判断表是否为空
     bool IsFull()	//判断表是否满
     void CopyList(List<T>& L) 	//将L复制到当前的表中
-    void Sort() 	//对当前的表排序
+    /*void Sort() 	//对当前的表排序*/
 end LinearList
 ```
 * 线性表：顺序表
@@ -43,3 +43,4 @@ end LinearList
 	int MaxSize, n;
     }SeqList;
     ```
+
