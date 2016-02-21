@@ -48,7 +48,9 @@ end LinearList
     * **SeqList.h**定义了顺序表实现。
     * **SeqApply.h**定义了顺序表的集合并和交操。
     * **main.cpp**定义了测试函数。
+
 * 线性表：单链表
+
 > 简化的操作：用struct定义LinkNode类
 在List中封装头指针first，这样属于该List的所有LinkNode实例都成为List实例的私有成员，从而保证不被外界直接访问。
 ```
