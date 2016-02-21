@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <stdlib.h>
-#include "LinearList.h"
+#include "SeqList/SeqLinearList.h"
 /**
  *模板函数不能进行头文件和函数定义的分离
  */
