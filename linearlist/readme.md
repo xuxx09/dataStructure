@@ -54,6 +54,7 @@ end LinearList
 > 简化的操作：用struct定义LinkNode类
 在List中封装头指针first，这样属于该List的所有LinkNode实例都成为List实例的私有成员，从而保证不被外界直接访问。
 
+
 ```
 struct LinkNode
 {
@@ -69,6 +70,7 @@ public:
     //链表的操作；
     ...
 };
+```
 
 ```
 /**
