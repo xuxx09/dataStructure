@@ -71,3 +71,86 @@ public:
 };
 
 ```
+* 单链表的插入和删除
+> 单链表的插入和删除，有两种方法，一个是带头结点，一个是不带头结点的表示方法。
+
+    *不带头结点的函数
+    ```
+/**
+ *在单链表(a1, a2, a3, ..., an)中对ai位置上插入一个新的元素x，有以下三种情况。
+ *(1)若ai是第一个元素，这应该插入第一个节点之前：
+ *    newNode->link = first; first = newNode;
+ *(2)若ai所在结点不是第一个节点，也不是最后一个结点：
+ *    newNode->link = current->next; current->next = newNode;
+ *(3)若ai是最后一个结点后面的结点：
+ *    newNode->link = current->next; current->next = newNode;
+ */
+bool List::Insert(int i, int& x)
+{
+    //若是插入第一个节点或者头指针为NULL；
+    if(first == NULL || i == 0)
+    {
+        LinkNode* newNode = new LinkNode(x);
+        if(newNode == NULL) {cerr<<"存储分配错误！"<<endl; return false;}
+        newNode->next = first->next;
+        first = newNode;
+    }
+    else
+    {
+        LinkNode* current = first;
+        for(int k = 1; k < i; k++)
+        {
+            if(current == NULL) break;
+            else current = current->link;
+        }
+        if(current == NULL)
+        {
+            cerr<<"无效的插入位置！"<<endl;return false;
+        }
+        else
+        {
+            LinkNode *newNode = new LinkNode(x);
+            if(newNode == NULL){cerr<<"存储分配错误！"<<endl; return false;}
+            newNode->link = current->link;
+            current->link = newNode;
+        }
+    }
+    return true;
+}
+
+/**
+ *单链表的删除算法，分为两种情况：
+ *(1) 在链表第一个结点处删除。
+ *    del = first; first = first->link; delete del;
+ *(2) 中间和最后的结点处进行删除。这里current指向要删除结点之前的一个结点。
+ *    del = current->link; current->link = del->link; delete del;
+ */
+
+bool List::Remove(int i, int& x)
+{
+    LinkNode *del, *current;
+    if(i<=1) {del = first; first = first->link;}
+    else
+    {
+        current = first;
+        for(int k = 1; k < i-1; k++)
+        {
+            if(current == NULL) break;
+            else
+            {
+                current = current->link;
+            }
+        }
+        if(current == NULL)
+        {
+            cerr<<"无效的删除位置！"<<endl;
+            return false;
+        }
+        del = current->link;
+        current->link = del->link;
+    }
+    x = del->data;
+    delete del;
+    return true;
+}
+    ```
