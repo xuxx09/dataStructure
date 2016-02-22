@@ -71,11 +71,6 @@ public:
 };
 
 ```
-* 单链表的插入和删除
-> 单链表的插入和删除，有两种方法，一个是带头结点，一个是不带头结点的表示方法。
-
-    *不带头结点的函数
-    ```
 /**
  *在单链表(a1, a2, a3, ..., an)中对ai位置上插入一个新的元素x，有以下三种情况。
  *(1)若ai是第一个元素，这应该插入第一个节点之前：
@@ -91,7 +86,11 @@ bool List::Insert(int i, int& x)
     if(first == NULL || i == 0)
     {
         LinkNode* newNode = new LinkNode(x);
-        if(newNode == NULL) {cerr<<"存储分配错误！"<<endl; return false;}
+        if(newNode == NULL)
+        {
+            cerr<<"存储分配错误！"<<endl;
+            return false;
+        }
         newNode->next = first->next;
         first = newNode;
     }
@@ -105,12 +104,17 @@ bool List::Insert(int i, int& x)
         }
         if(current == NULL)
         {
-            cerr<<"无效的插入位置！"<<endl;return false;
+            cerr<<"无效的插入位置！"<<endl;
+            return false;
         }
         else
         {
             LinkNode *newNode = new LinkNode(x);
-            if(newNode == NULL){cerr<<"存储分配错误！"<<endl; return false;}
+            if(newNode == NULL)
+            {
+                cerr<<"存储分配错误！"<<endl;
+                return false;
+            }
             newNode->link = current->link;
             current->link = newNode;
         }
@@ -129,7 +133,11 @@ bool List::Insert(int i, int& x)
 bool List::Remove(int i, int& x)
 {
     LinkNode *del, *current;
-    if(i<=1) {del = first; first = first->link;}
+    if(i<=1)
+    {
+        del = first;
+        first = first->link;
+    }
     else
     {
         current = first;
@@ -153,4 +161,4 @@ bool List::Remove(int i, int& x)
     delete del;
     return true;
 }
-    ```
+```
